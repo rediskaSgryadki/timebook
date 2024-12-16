@@ -1,0 +1,25 @@
+{% extends 'account/pattern.html' %}
+{% load static %}
+{% block content %}
+    <div class="container d-flex flex-column h-100 justify-content-center text-center align-items-center">
+        <div class="krug-navbar">
+            <nav class="menu">
+                <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+                <label class="menu-open-button" for="menu-open">
+                    <img class="img-fluid w-50" src="{% static 'account/img/svg/free-icon-menu-4204600.png' %}" alt="">
+               </label>
+                <a href="{% url 'kalendar' %}" class="menu-item blue"><img src="{% static 'account/img/svg/календарь.svg' %}" class="img-fluid w-75"></a>
+                <a href="{% url 'zametka' %}" class="menu-item green"><img src="{% static 'account/img/svg/блокнот.svg' %}" class="img-fluid w-75"></a>
+                <a href="#" class="menu-item red"><img src="{% static 'account/img/svg/эмоции.svg' %}" class="img-fluid w-75"></a>
+                <a href="#" class="menu-item purple"><img src="{% static 'account/img/svg/настройки.svg' %}" class="img-fluid w-75"></a>
+                <a href="#" class="menu-item orange"><img src="{% static 'account/img/svg/вопросы.svg' %}" class="img-fluid w-75"></a>
+                <a href="#" class="menu-item lightblue"><img src="{% static 'account/img/svg/выход.svg' %}" class="img-fluid"></a>
+             </nav>
+        </div>
+        <h1>{{ request.user.username }}, добро пожаловать, в ТАЙМБУК!</h1>
+        <a href="{% url 'zametka' %}" class="btn btn-custom w-30">
+            <h5>Добавить запись</h5>
+        </a>
+    </div>
+    <script src="{% static 'account/js/script.js' %}"></script>
+{% endblock %}

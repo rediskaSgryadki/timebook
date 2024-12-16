@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'main/img/icon/блокнот — копия.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <title>ТАЙМБУК</title>
+</head>
+<body>
+    <!--НАВБАР-->
+    <div id="navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col top-link d-flex align-items-center">
+                    <a href="{% url 'home_page' %}" class="text-center text-decoration-none" style="font-family: zag; font-size: 1.5em;">таймбук</a>
+                    <a href="#func" class="text-center text-decoration-none">Обратная связь</a>
+                </div>
+                <div class="col d-flex justify-content-end"><img src="{% static 'main/img/icon/СменаТемы.png' %}" alt="смена темы"></div>
+            </div>
+        </div>
+    </div>
+    <!--ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ-->
+    <div class="container">
+        <h1 class="text-center">политика конфиденциальности</h1><br>
+        <main>
+            <section>
+                <h2>Введение</h2>
+                <p>Добро пожаловать в ТАЙМБУК. Мы заботимся о защите вашей личной информации и соблюдении вашего права на конфиденциальность. Если у вас есть вопросы, свяжитесь с нами по адресу: <a href="mailto:support@company.com">support@company.com</a>.</p>
+            </section>
+    
+            <section>
+                <h2>Какие данные мы собираем</h2>
+                <p>Мы собираем персональные данные, которые вы добровольно предоставляете нам при регистрации, интересе к нашим услугам или обращении к нам.</p>
+                <ul>
+                    <li><p style="font-size: 1.5em;">идентификаторы (например, имя, адрес электронной почты)</p></li>
+                    <li><p style="font-size: 1.5em;">данные об использовании (например, история посещений, IP-адрес)</p></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Как мы используем ваши данные</h2>
+                <p>Ваши данные используются для:</p>
+                <ul>
+                    <li><p style="font-size: 1.5em;">предоставления, улучшения и поддержки наших услуг</p></li>
+                    <li><p style="font-size: 1.5em;">связи с вами</p></li>
+                    <li><p style="font-size: 1.5em;">обеспечения безопасности и предотвращения мошенничества</p></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Передача данных третьим лицам</h2>
+                <p>Мы не передаем ваши персональные данные третьим лицам, за исключением случаев, предусмотренных законом или необходимых для выполнения наших обязательств.</p>
+            </section>
+            <section>
+                <h2>Ваши права</h2>
+                <p>Вы имеете право на доступ, обновление или удаление своих данных. Свяжитесь с нами для реализации ваших прав.</p>
+            </section>
+            <section>
+                <h2>Контакты</h2>
+                <p>Если у вас есть вопросы о данной политике конфиденциальности, свяжитесь с нами:</p>
+                <address>
+                    Электронная почта: <a href="mailto:support@company.com">support@company.com</a><br>
+                    Телефон: (123) 456-7890
+                </address>
+            </section>
+        </main>
+    </div>
+    <!--ПОДВАЛ-->
+    <footer>
+        <div class="container-full otst">
+            <div class="row bok-otst">
+                <div class="col d-flex justify-content-between align-items-center">
+                    <a href="#home" class="text-decoration-none" style="font-size: 1.5em; font-family: zag;">ТАЙМБУК</a>
+                    <div class="d-flex justify-content-between col-6">
+                        <a href="{% url 'reg_home' %}" class="text-decoration-none">Войти/Присоединиться</a>
+                        <a href="#" class="text-decoration-none">Обратная связь</a>
+                        <a href="#" class="text-decoration-none">Поддержать проект</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="row-fluid d-flex justify-content-between bok-otst" style="margin-bottom: 100px;">
+            <p style="font-size: 1em;">© 2020 — 2024 ТАЙМБУК</p>
+            <div class="d-flex col-3 justify-content-between">
+                <a href="{% url 'polit' %}" class="text-decoration-none">Политика конфиденциальности</a>
+                <a href="{% url 'sogl' %}" class="text-decoration-none">Пользовательское соглашение</a>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'account/pattern.html' %}
+{% load static %}
+
+{% block content %}
+<!-- <div class="container">
+    <h1 class="text-center">{{ note.title }}</h1>
+    {{ note.content }}
+</div> -->
+<style>
+        /* НОУТ */
+        @media (min-width: 769px) and (max-width: 1919px) {
+            .editor {
+                max-height: 400px;
+            }
+    }
+    /* ПК */
+    @media (min-width: 1920px) {
+        .editor {
+        max-height: 500px;
+    }
+    }
+        /* Стили для полосы прокрутки */
+        ::-webkit-scrollbar {
+        width: 15px;
+        height: 12px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #dddddd;
+        border-radius: 10px;
+        width: 50%;
+        margin-left: 25%;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+</style>
+<div class="container-fluid h-100 d-flex justify-content-evenly align-items-center flex-column">
+    <div class="row fon2" style="height: 90%;">
+        <div class="row justify-content-center h-100">
+            <div class="col-12 md-6 h-100">
+                <div class="note-form d-flex flex-column col-12 h-100">
+                    <div class="row col-12 d-flex justify-content-between">
+                        <!-- Поле для заголовка -->
+                        <div class="mb-3 mt-3 col-6 d-flex">
+                            <h1 class="text-center">{{ note.title }}</h1>               
+                        </div>
+                    </div>
+                    <div class="editor" style="overflow-y: auto;">
+                        <div>
+                            {{ note.content|safe }}
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

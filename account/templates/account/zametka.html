@@ -1,0 +1,117 @@
+{% extends 'account/pattern.html' %}
+{% load static %}
+{% block content %}
+<style>
+    /* НОУТ */
+    @media (min-width: 769px) and (max-width: 1919px) {
+    #editor {
+        max-height: 300px;
+    }
+    }
+    /* ПК */
+    @media (min-width: 1920px) {
+        #editor {
+        max-height: 500px;
+    }
+    }
+    /* Стили для полосы прокрутки */
+    ::-webkit-scrollbar {
+        width: 15px;
+        height: 12px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #dddddd;
+        border-radius: 10px;
+        width: 50%;
+        margin-left: 25%;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+        
+</style>
+<div class="container-fluid h-100 d-flex justify-content-evenly align-items-center flex-column">
+    <div class="krug-navbar">
+        <nav class="menu">
+            <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+            <label class="menu-open-button" for="menu-open">
+                <img class="img-fluid w-50" src="{% static 'account/img/svg/free-icon-menu-4204600.png' %}" alt="">
+           </label>
+            <a href="{% url 'kalendar' %}" class="menu-item blue"><img src="{% static 'account/img/svg/календарь.svg' %}" class="img-fluid w-75"></a>
+            <a href="{% url 'zametka' %}" class="menu-item green"><img src="{% static 'account/img/svg/блокнот.svg' %}" class="img-fluid w-75"></a>
+            <a href="#" class="menu-item red"><img src="{% static 'account/img/svg/эмоции.svg' %}" class="img-fluid w-75"></a>
+            <a href="#" class="menu-item purple"><img src="{% static 'account/img/svg/настройки.svg' %}" class="img-fluid w-75"></a>
+            <a href="#" class="menu-item orange"><img src="{% static 'account/img/svg/вопросы.svg' %}" class="img-fluid w-75"></a>
+            <a href="#" class="menu-item lightblue"><img src="{% static 'account/img/svg/выход.svg' %}" class="img-fluid"></a>
+         </nav>
+    </div>
+    <div class="row fon2">
+        <div class="row justify-content-center h-100">
+            <div class="col-12 md-6">
+                <div class="note-form d-flex flex-column col-12">
+                    <form method="POST" class="d-flex flex-column h-100">
+                        {% csrf_token %}
+                        <div class="row col-12 d-flex justify-content-between">
+                            <!-- Поле для заголовка -->
+                            <div class="mb-3 mt-3 col-6 d-flex">
+                                <input type="text" placeholder="Заголовок" class="form-control" id="title" name="title" value="{{ note.title }}" required>
+                                <input type="date" class="form-control" id="created_at" style="background: none; border: none;" name="created_at" value="{{ note.created_at|date:'Y-m-d' }}" required>
+                            </div>
+                            <div class="row col-6 d-flex justify-content-end">
+                                <button type="submit" style="background: none; border: none; width: auto;">
+                                    <i class="fa fa-check fa-2x text-success"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Поле для ввода текста -->
+                        <div id="editor" class="form-control flex-grow-1" style="border: none; resize: none; border-radius: 15px; overflow: auto;"></div>
+                        <!-- Поле для передачи отредактированного текста -->
+                        <textarea id="content" name="content" hidden></textarea>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Панель инструментов -->
+    <div id="toolbar" class="mt-2 d-flex justify-content-evenly align-items-center">
+        <div class="tool">
+            <select class="ql-font"></select>
+        </div>
+        <div class="tool">
+            <select class="ql-size"></select>
+        </div>
+        <div class="tool">
+            <button class="ql-bold"></button>
+        </div>
+        <div class="tool">
+            <button class="ql-italic"></button>
+        </div>
+        <div class="tool">
+            <button class="ql-underline"></button>
+        </div>
+        <div class="tool">
+            <select class="ql-align"></select>
+        </div>
+        <div class="tool">
+            <button class="ql-list" value="ordered"></button>
+        </div>
+        <div class="tool">
+            <button class="ql-list" value="bullet"></button>
+        </div>
+        <div class="tool">
+            <select class="ql-color"></select>
+        </div>
+    </div>
+</div>
+
+<!-- Подключение Font Awesome для использования иконки -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+{% endblock %}

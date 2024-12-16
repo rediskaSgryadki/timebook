@@ -1,0 +1,280 @@
+/* Подключение шрифтов */
+@font-face {
+    font-family: "zag";
+    src: url(../fonts/ARCO.ttf);
+}
+@font-face {
+    font-family: "text";
+    src: url(/fonts/Anybody-Bold.ttf);
+}
+@font-face {
+    font-family: "number";
+    src: url(/fonts/Anybody-Italic.ttf);
+}
+
+/* Основные настройки страницы */
+body {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+.noscroll {
+    /* overflow: hidden; */
+}
+
+/* Стили заголовков */
+h1, h2 {
+    font-family: zag;
+    color: #595880;
+}
+p {
+    font-family: text;
+    color: #595880;
+    font-size: 2em;
+}
+
+/* Стили для ссылок и кнопок */
+.top-link {
+    display: flex;
+    gap: 20px;
+}
+.top-link a{
+    color: #595880;
+    font-size: 1.17em;
+}
+/* Стили для раздела с фоном */
+.tip {
+    height: 30vh;
+    background-image: url(../img/prisFon.webp);
+    background-position: 10%;
+    background-size: 100%;
+}
+.tip h1 {
+    color: white;
+}
+
+/* Линии и разделители */
+.line {
+    width: 100%;
+    border-bottom: 2px solid;
+    border-color: #595880;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+/* Фиксированная навигационная панель */
+.fixed-navbar {
+    background-color: rgb(241, 241, 241);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Кнопки */
+.btn-custom, .btn-white {
+    border-width: 3px; 
+    border-radius: 10px;
+}
+.btn-custom {
+    border-color: #595880;
+}
+.btn-custom a, .btn-white a {
+    font-family: text;
+}
+.btn-custom a {
+    color: #595880;
+}
+.btn-white {
+    border-color: #ffffff;
+}
+.btn-white a {
+    color: #ffffff;
+}
+
+/* Общие контейнеры */
+.otst2 {
+    margin-top: 10px;
+}
+.fon {
+    background-color: #dddddd;
+    height: 90vh;
+    border-radius: 50px;
+    border: 2px #8381ac solid;
+}
+.fon2 {
+    background-color: white;
+    width: 100%;
+    height: 75%;
+    border-radius: 50px;
+}
+
+/* Форма заметок */
+.note-form, .note-form form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.note-form textarea {
+    width: 100%;
+    resize: none;
+    height: 70%; 
+    border: none;
+}
+
+/* Стили для полей ввода */
+#title {
+    border: none;
+    font-size: 1.5em;
+    font-family: zag;
+}
+input#title:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Панель инструментов */
+#toolbar {
+    height: 10%;
+    width: 100%;
+    border-radius: 50px;
+    background-color: white;
+}
+.tool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px #dddddd solid;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.kalendar-tool {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px #dddddd solid;
+    height: 60px;
+    width: 60px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Стили для всплывающих подсказок */
+.tooltip-link {
+    position: relative;
+    text-decoration: none;
+    color: #595880;
+}
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 5px;
+    background-color: #595880;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+
+.zam-crat{
+    background-color: white;
+    border-radius: 50px;
+}
+.zam-crat:hover{
+    box-shadow: -2px 4px 100px -9px #8381ac;
+}
+
+/* Общие стили */
+#calendar-days {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.calendar-row {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.kalendar-tool {
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: zag;
+    color: #595880;
+}
+.day{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #595880;
+}
+.day a{
+    text-decoration: none;
+    font-weight: bold;
+    font-family: zag;
+    color: #595880;
+}
+/* Навигация календаря */
+.tool {
+    font-size: 14px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.tool a{
+    text-decoration: none;
+    font-family: zag;
+}
+
+.tool:hover {
+    background-color: #e0e0e0;
+}
+
+/* Дни недели */
+.row-12 {
+    margin-bottom: 10px;
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .tool {
+        font-size: 12px;
+    }
+
+    .kalendar-tool {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+}
+
+
+.note-container{
+    height: 350px;
+    border-radius: 50px;
+    background-color: white;
+}

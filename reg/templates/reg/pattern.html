@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'reg/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'reg/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'main/img/icon/блокнот — копия.png' %}" type="image/x-icon">
+    <title>ТАЙМБУК</title>
+</head>
+<style>
+    @media (max-width: 768px) {
+        #navbar {
+            background: rgba(0, 0, 0, 0.164);
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1; /* Навбар поверх изображения */
+        }
+        .top-link a{
+            color: white;
+            font-size: 1em;
+    }
+    }
+</style>
+<body class="noscroll">
+    <!-- НАВБАР -->
+    <div id="navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-10 top-link d-flex align-items-center">
+                    <a href="{% url 'home_page' %}" class="text-center text-decoration-none" style="font-family: zag; font-size: 1.17em;">таймбук</a>
+                    <a href="#func" class="text-center text-decoration-none">Обратная связь</a>
+                </div>
+                <div class="col-2 d-flex justify-content-end"><img class="img-fluid" src="{% static 'reg/img/icon/СменаТемы.png' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'reg/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'reg/js/script.js' %}"></script>
+</body>
+</html>

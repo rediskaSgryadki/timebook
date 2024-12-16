@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon/блокнот.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'reg/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'main/img/icon/блокнот — копия.png' %}" type="image/x-icon">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+    <title>ТАЙМБУК</title>
+</head>
+<style>
+    /* Для телефонов */
+    @media (max-width: 768px) {
+        .left-navbar{
+            display: none;
+        }
+        .krug-navbar{
+            display: block;
+        }
+    }
+    /* НОУТ */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        .left-navbar{
+            display: flex;
+        }
+        .krug-navbar{
+            display: none;
+        }
+    }
+    /* ПК */
+    @media (min-width: 1441px) {
+        .left-navbar{
+            display: flex;
+        }
+        .krug-navbar{
+            display: none;
+        }
+    }
+    </style>
+<body class="noscroll">
+    <!-- Навигационная панель -->
+    <div id="navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-10 top-link d-flex align-items-center">
+                    <a href="{% url 'home_page' %}" class="text-center text-decoration-none" style="font-family: zag; font-size: 1.17em;">таймбук</a>
+                    <a href="#func" class="text-center text-decoration-none">Обратная связь</a>
+                </div>
+                <div class="col-2 d-flex justify-content-end"><img class="img-fluid" src="{% static 'reg/img/icon/СменаТемы.png' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основное содержимое страницы -->
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-evenly">
+            <!-- Левый сайдбар -->
+            <div class="col-1 flex-column justify-content-evenly align-items-center fon left-navbar" style="max-width: 90px;">
+                <!-- Изображение профиля -->
+                <div class="row">
+                    <img src="img/главное фото.jpg" alt="" class="acc-photo">
+                </div>
+                <!-- Ссылки на различные страницы (с иконками) с подсказками -->
+                <div class="row tooltip-link" data-tooltip="календарь">
+                    <a href="{% url 'kalendar' %}">
+                        <img src="{% static 'account/img/svg/календарь.svg' %}" class="img-fluid">
+                    </a>
+                </div>
+                <div class="row tooltip-link" data-tooltip="заметка">
+                    <a href="{% url 'zametka' %}">
+                        <img src="{% static 'account/img/svg/блокнот.svg' %}" class="img-fluid">
+                    </a>
+                </div>
+                <div class="row tooltip-link" data-tooltip="эмоции">
+                    <img src="{% static 'account/img/svg/эмоции.svg' %}" class="img-fluid">
+                </div>
+                <div class="row tooltip-link" data-tooltip="настройки">
+                    <img src="{% static 'account/img/svg/настройки.svg' %}" class="img-fluid">
+                </div>
+                <div class="row tooltip-link" data-tooltip="вопросы">
+                    <img src="{% static 'account/img/svg/вопросы.svg' %}" class="img-fluid">
+                </div>
+                <div class="row tooltip-link" data-tooltip="выход">
+                    <img src="{% static 'account/img/svg/выход.svg' %}" class="img-fluid">
+                </div>
+            </div>
+            <!-- Основной контент страницы -->
+            <div class="col-10 fon row-12 d-flex justify-content-center align-items-center">
+
+                <!-- Блок контента, который будет переопределен в шаблонах -->
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript файлов -->
+    <script src="{% static 'account/js/script.js' %}"></script>
+    <script src="{% static 'account/js/menu.js' %}"></script>
+    <script src="{% static 'reg/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

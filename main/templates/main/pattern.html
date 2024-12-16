@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Храните ваши мысли, отслеживайте цели и сохраняйте важные моменты жизни в онлайн дневнике ТАЙМБУК">
+    <meta name="keywords" content="дневник, личный дневник, задачи, рефлексия, планирование">
+    <link rel="shortcut icon" href="{% static 'main/img/icon/блокнот — копия.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <title>ТАЙМБУК</title>
+</head>
+<body>
+    <!--НАВБАР-->
+    <div id="navbar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col top-link d-flex align-items-center">
+                    <a href="#home" class="text-center text-decoration-none" style="font-family: zag; font-size: 1.5em;">таймбук</a>
+                    <a href="#func" class="text-center text-decoration-none">Функции</a>
+                    <a href="{% url 'reg_home' %}" class="text-decoration-none">Войти/Присоединиться</a>
+                </div>
+                <div class="col d-flex justify-content-end"><img src="{% static 'main/img/icon/СменаТемы.png' %}" alt="смена темы"></div>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <script src="{% static 'main/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+</body>
+</html>

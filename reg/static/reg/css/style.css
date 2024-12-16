@@ -1,0 +1,171 @@
+@font-face {
+    font-family: "zag";
+    src: url(../fonts/ARCO.ttf);
+}
+@font-face {
+    font-family: "text";
+    src: url(/fonts/Anybody-Bold.ttf);
+}
+@font-face {
+    font-family: "number";
+    src: url(/fonts/Anybody-Italic.ttf);
+}
+
+h1{
+    font-family: zag;
+    color: #595880;
+}
+h3{
+    color: #595880;
+}
+h4{
+    color: #595880;
+    font-family: zag;
+}
+h5,h6{
+    color: #595880;
+    font-family: text;
+}
+h5:hover{
+    color: #8381ac;
+}
+.otst{
+    margin-top: 150px;
+}
+.top-link{
+    display: flex;
+    gap: 20px;
+}
+.slogan{
+    display: flex;
+    height: 50%;
+}
+
+.misl{
+    background: url(../img/background/bloknot.webp), linear-gradient(214deg, rgba(208,206,228,1) 0%, rgba(251,226,173,1) 100%);
+    background-size: cover;
+    height: 60vh;
+    border-radius: 50px;
+    transition: background-position 0.3s ease, box-shadow 0.3s ease;
+}
+.zadac{
+    background: url(../img/background/galka.webp), linear-gradient(214deg, rgba(208,206,228,1) 0%, rgba(251,226,173,1) 100%);
+    background-size: cover;
+    height: 60vh;
+    border-radius: 50px;
+    transition: background-position 0.3s ease, box-shadow 0.3s ease;
+}
+.ustr{
+    background: url(../img/background/ustroistva.webp), linear-gradient(214deg, rgba(208,206,228,1) 0%, rgba(251,226,173,1) 100%);
+    background-size: cover;
+    height: 60vh;
+    border-radius: 50px;
+    transition: background-position 0.3s ease, box-shadow 0.3s ease;
+}
+.photo{
+    background: url(../img/background/fotik.webp), linear-gradient(214deg, rgba(208,206,228,1) 0%, rgba(251,226,173,1) 100%);
+    background-size: cover;
+    height: 60vh;
+    border-radius: 50px;
+    transition: background-position 0.3s ease, box-shadow 0.3s ease;
+}
+.misl:hover, .zadac:hover, .ustr:hover, .photo:hover{
+    background-position: 30%;
+    box-shadow: -2px 4px 100px -9px #8381ac;
+    box-shadow: #595880;
+}
+
+.tip{
+    height: 30vh;
+    background-image: url(../img/prisFon.webp);
+    background-position: 10%;
+    background-size: 100%;
+}
+.tip h1{
+    color: white;
+}
+.line{
+    width: 100%;
+    border-bottom: 2px solid;
+    border-color: #595880;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+
+
+
+
+.fixed-navbar {
+    background-color: rgb(241, 241, 241);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.btn-custom{
+    width: 100%;
+    border-width: 3px; 
+    border-radius: 10px;
+    border-color: #595880;
+    margin-bottom: 10px;
+}
+.btn-custom a{
+    font-family: text;
+    color: #595880;
+}
+.glav-img{
+    border-radius: 50%;
+}
+.btn-white{
+    border-width: 3px; 
+    border-radius: 10px;
+    border-color: #ffffff;
+}
+.btn-white a{
+    font-family: text;
+    color: #ffffff;
+}
+
+.otst2{
+    margin-top: 10px;
+}
+
+label{
+    display: none;
+}
+
+.helptext {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 10;
+}
+ul{
+    display: none;
+}
+input{
+    width: 100%;
+    border-width: 3px; 
+    border-radius: 10px;
+    border-color: #595880;
+    margin-bottom: 10px;
+    height: 5vh;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid #595880;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

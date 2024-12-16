@@ -1,0 +1,71 @@
+{% extends 'reg/pattern.html' %}
+{% load static %}
+{% block content %}
+<style>
+/* Для телефонов */
+@media (max-width: 768px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow: auto;
+        }
+        .crug-img-right{
+            border-top-right-radius: 0%;
+            border-bottom-right-radius: 0%;
+            border-bottom-left-radius: 50%; /* Скругление снизу */
+            border-bottom-right-radius: 50%; /* Скругление снизу */
+            z-index: -1;
+        }
+    }
+    /* НОУТ */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow-y: hidden;
+        }
+        .crug-img-right{
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+    /* ПК */
+    @media (min-width: 1441px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow-y: hidden;
+        }
+        .crug-img-right{
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+</style>
+<div class="container-fluid full-height">
+    <div class="row h-75">
+        <div class="col-md-6 p-0">
+            <img src="{% static 'reg/img/девушка сидит в комнате.jpg' %}" class="img-fluid h-100 w-100 crug-img-right" style="object-fit: cover;">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-center mb-5">войти</h1>
+            <form method="post" class="container-fluid d-flex align-items-center flex-column">
+                <div class="w-75 form-spacing">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <div class="w-75 custom-buttons d-flex justify-content-between flex-column">
+                    <button class="btn btn-custom" type="submit" style="color: #595880;"><a>Войти</a></button>
+                    <button class="btn btn-custom" type="button"><a href="{% url 'reg_home' %}" class="text-decoration-none" style="color: #595880;">Зарегистрироваться</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

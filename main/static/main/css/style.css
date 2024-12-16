@@ -1,0 +1,161 @@
+/* Подключение шрифтов */
+@font-face {
+    font-family: "zag";
+    src: url(../fonts/ARCO.ttf);
+}
+@font-face {
+    font-family: "text";
+    src: url(/fonts/Anybody-Bold.ttf);
+}
+@font-face {
+    font-family: "number";
+    src: url(/fonts/Anybody-Italic.ttf);
+}
+
+/* Общие стили */
+body {
+
+    background-color: white;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.noscroll {
+    overflow: hidden;
+}
+
+/* Заголовки */
+h1, h2 {
+    font-family: zag;
+    color: #595880;
+}
+p {
+    font-family: text;
+    color: #595880;
+    font-size: 2em;
+}
+
+/* Общие отступы */
+.otst {
+    margin-top: 150px;
+}
+.otst2 {
+    margin-top: 10px;
+}
+
+/* Ссылки и кнопки */
+.top-link {
+    display: flex;
+    gap: 20px;
+}
+.top-link a{
+    color: #595880;
+    font-size: 1.17em;
+}
+
+/* Кнопки */
+.btn-custom,
+.btn-custom-white {
+    border-width: 3px;
+    border-radius: 10px;
+}
+.btn-custom {
+    border-color: #595880;
+}
+.btn-custom a {
+    font-family: text;
+    color: #595880;
+}
+.btn-custom-white {
+    border-color: #ffffff;
+}
+.btn-custom-white a {
+    font-family: text;
+    color: #ffffff;
+}
+
+
+.glav-img {
+    border-radius: 50%;
+}
+.zap{
+    border-radius: 50px;
+}
+
+/* Секции */
+.slogan {
+    display: flex;
+    height: 50%;
+}
+
+/* Карточки */
+.misl, .zadac, .ustr, .photo {
+    border-radius: 50px;
+    transition: background-position 0.3s ease, box-shadow 0.3s ease;
+}
+.misl {
+    background: url(../img/background/bloknot.webp), linear-gradient(214deg, rgba(208, 206, 228, 1) 0%, rgba(251, 226, 173, 1) 100%);
+    background-size: cover;
+}
+.zadac {
+    background: url(../img/background/galka.webp), linear-gradient(214deg, rgba(208, 206, 228, 1) 0%, rgba(251, 226, 173, 1) 100%);
+    background-size: cover;
+}
+.ustr {
+    background: url(../img/background/ustroistva.webp), linear-gradient(214deg, rgba(208, 206, 228, 1) 0%, rgba(251, 226, 173, 1) 100%);
+    background-size: cover;
+}
+.photo {
+    background: url(../img/background/fotik.webp), linear-gradient(214deg, rgba(208, 206, 228, 1) 0%, rgba(251, 226, 173, 1) 100%);
+    background-size: cover;
+}
+.misl:hover, .zadac:hover, .ustr:hover, .photo:hover {
+    background-position: 30%;
+    box-shadow: -2px 4px 100px -9px #8381ac;
+}
+.fon3{
+    background: linear-gradient(214deg, rgba(208, 206, 228, 1) 0%, rgba(251, 226, 173, 1) 100%);
+}
+
+/* Секция "tip" */
+.tip {
+    height: 30vh;
+    background-image: url(../img/prisFon.webp);
+    background-position: 10%;
+    background-size: 100%;
+}
+.tip h1 {
+    color: white;
+}
+
+/* Линия-разделитель */
+.line {
+    width: 100%;
+    border-bottom: 2px solid #595880;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Фиксированный navbar */
+.fixed-navbar {
+    background-color: rgb(241, 241, 241);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+.bok-otst {
+    padding-left: 15px; /* Общий отступ от краев */
+    padding-right: 15px;
+    box-sizing: border-box; /* Учет паддингов в ширине */
+}
+
+footer a{
+    color: #595880;
+}
+
+.crug-img-left{
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+}

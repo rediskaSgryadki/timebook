@@ -1,0 +1,181 @@
+{% extends 'account/pattern.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* Для телефонов */
+    @media (max-width: 768px) {
+        #kalendar-kont {
+            max-height: 500px;
+        }
+        .day{
+            width: 30px;
+            height: 30px;
+        }
+        .krug-navbar{
+            display: block;
+        }
+        .zap{
+            width: 100%;
+        }
+        .burger-container{
+            display: block;
+        }
+    }
+
+    /* НОУТ */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        .krug-navbar{
+            display: none;
+        }
+        #kalendar-kont {
+            max-height: 300px;
+        }
+        .day{
+            width: 50px;
+            height: 50px;
+        }
+        .zap{
+            width: 50%;
+        }
+        .burger-container{
+            display: none;
+        }
+    }
+
+    /* ПК */
+    @media (min-width: 1441px) {
+        #kalendar-kont {
+            max-height: 500px;
+        }
+        .day{
+            width: 70px;
+            height: 70px;
+        }
+        .krug-navbar{
+            display: none;
+        }
+        .zap{
+            width: 50%;
+        }
+        .burger-container{
+            display: none;
+        }
+    }
+
+    /* Стили для полосы прокрутки */
+    ::-webkit-scrollbar {
+        width: 15px;
+        height: 12px;
+        background-color: #dddddd;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 10px;
+        width: 50%;
+        margin-left: 25%;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: #dddddd;
+        border-radius: 10px;
+    }
+
+</style>
+
+<div class="container-fluid h-100 d-flex">
+    <div class="row col-12 d-flex-lg-md flex-column-xs-sm h-100 align-items-center justify-content-evenly content">
+        <div class="col-lg-5 d-flex flex-column">
+            <!-- Секция выбора даты -->
+            <div class="col-12">
+                <div class="mb-3 d-flex justify-content-between">
+                    <!-- Стрелка влево -->
+                    <button id="prev-month" class="btn btn-outline-primary kalendar-tool">
+                        <span style="font-size: 30px; color: #595880; font-weight: bolder;">&#8592;</span>
+                    </button>
+                    <!-- Выбор года и месяца -->
+                    <select id="month-selector" class="form-select mb-2 kalendar-tool">
+                        {% for month_number, month_name in months %}
+                            <option value="{{ month_number }}" {% if month_number == current_month|stringformat:"s" %}selected{% endif %}>
+                                {{ month_name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <select id="year-selector" class="form-select mb-2 kalendar-tool">
+                        {% for year in years %}
+                            <option value="{{ year }}" {% if year == current_year %}selected{% endif %}>
+                                {{ year }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <!-- Стрелка вправо -->
+                    <button id="next-month" class="btn btn-outline-primary kalendar-tool">
+                        <span style="font-size: 30px; color: #595880; font-weight: bolder;">&#8594;</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Календарь -->
+            <div class="col-12 row-5 h-100 d-flex flex-column justify-content-between">
+                <div class="row-5 col-12 d-flex justify-content-between h-100">
+                    {% for day in days_in_month %}
+                        <div class="col-1 mb-2 text-center day">
+                            <a href="?selected_date={{ day|date:'Y-m-d' }}" 
+                               class=" {% if selected_date and day.date == selected_date %}btn-primary{% else %}btn-outline-primary{% endif %}">
+                                {{ day.day }}
+                            </a>
+                        </div>
+                        {% if forloop.counter|divisibleby:7 %}
+                            </div><div class="row-5 d-flex justify-content-between">
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if missing_days %}
+                        {% for i in missing_days %}
+                            <div class="col-1 mb-2 text-center day" style="color: gray;">
+                                {{ i }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Список заметок -->
+        <div class="col d-flex flex-column h-75" id="kalendar-cont" style="overflow: auto;">
+            <div id="notes-container kalendar-cont" class="d-flex flex-column align-items-center w-100">
+                {% if notes %}
+                    {% for note in notes %}
+                    <div class="note-container d-flex flex-column justify-content-center align-items-center text-center zap" style="margin-top: 50px;">
+                        <a href="{% url 'zametka_detail' note.id %}" class="text-decoration-none">
+                            <h2 style="font-family: zag;">{{ note.title|striptags|truncatechars:10 }}</h2>
+                            <p>{{ note.content|striptags|truncatechars:10 }}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="note-container d-flex flex-column justify-content-center align-items-center text-center zap">
+                    <p class="text-center" style="font-family: zag;">Нет заметок</p>
+                    <a href="{% url 'zametka' %}" class="btn btn-custom w-30">
+                        <h5>Добавить запись</h5>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+</script>
+
+<script src="{% static 'account/js/kalendar.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'reg/pattern.html' %}
+{% load static %}
+{% block content %}
+<style>
+/* Для телефонов */
+    @media (max-width: 768px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow: auto;
+        }
+        .crug-img-right{
+            border-top-right-radius: 0%;
+            border-bottom-right-radius: 0%;
+            border-bottom-left-radius: 50%; /* Скругление снизу */
+            border-bottom-right-radius: 50%; /* Скругление снизу */
+            z-index: -1;
+        }
+    }
+    /* НОУТ */
+    @media (min-width: 1025px) and (max-width: 1440px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow-y: hidden;
+        }
+        .crug-img-right{
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+    /* ПК */
+    @media (min-width: 1441px) {
+        body{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .noscroll{
+            overflow-y: hidden;
+        }
+        .crug-img-right{
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+</style>
+<div class="container-fluid full-height">
+    <div class="row h-75">
+        <div class="col-md-6 p-0">
+            <img src="{% static 'reg/img/девушка сидит в комнате.jpg' %}" class="img-fluid h-100 w-100 crug-img-right" style="object-fit: cover;">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="text-center mb-5">Регистрация</h1>
+            <form method="post" class="container-fluid d-flex align-items-center flex-column">
+                <div class="w-75 form-spacing">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                </div>
+                <div class="w-75 custom-buttons d-flex justify-content-between flex-column align-items-stretch">
+                    <button class="btn btn-custom" type="submit"><a style="color: #595880;">Зарегистрироваться</a></button>
+                    <button class="btn btn-custom" type="button"><a href="{% url 'log_page' %}" class=" text-decoration-none" style="color: #595880;">Войти</a></button>
+                </div>
+                <div class="w-75 d-flex text-center">
+                    <h6>Регистрируясь, вы принимаете <a href="{% url 'polit' %}">Политику конфиденциальности</a> и <a href="{% url 'sogl' %}">Пользовательское соглашение</a></h6>
+                </div>
+            </form>
+        </div>
+    </div> 
+</div>
+{% endblock %}
